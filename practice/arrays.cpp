@@ -61,3 +61,36 @@ void printArray(int theArray[], int sizeOfArray) {
     }
 }
 
+//multidimenstional array
+#include <iostream>
+using namespace std;
+
+int main() {
+    //array 1 is a row array 2 is a column
+    int nums[2][3] = {{2,3,4},{8,9,10}};
+
+    //2,3,4
+    //8,9,10
+
+    cout << nums[1][1];
+
+}
+
+//print out a multidimentional array
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int nums[2][3] ={{1,2,3},{7,8,9}};
+
+    for( int row = 0; row < 2; row++) {
+
+        for(int column = 0; column < 3; column++) {
+            cout << nums[row][column] << " ";
+        }
+        cout << endl;
+    }
+
+}
+

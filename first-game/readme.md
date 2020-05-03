@@ -20,6 +20,9 @@ EXPRESSION STATEMENTS
 DECLARATION STATEMENT
 - declares 'something
 
+UNREAL ENGINE VARIABLES
+- uses camelcase for variable namings
 
-
-
+ESCAPE SEQUENCES
+- cout << "He said: \"Hello World\n"";
+\n is new line

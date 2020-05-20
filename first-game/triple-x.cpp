@@ -1,5 +1,6 @@
 //preprocessor directive
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 // using namespace rand;
@@ -16,9 +17,9 @@ bool PlayGame(int Difficulty)
 {
     PrintIntroduction(Difficulty);
     //declaration variables for code values, used CamelCase as per Unreal Documentation
-    const int CodeA = rand() % Difficulty + 1;
-    const int CodeB = rand() % Difficulty + 1;
-    const int CodeC = rand() % Difficulty + 1;
+    const int CodeA = rand() % Difficulty + Difficulty;
+    const int CodeB = rand() % Difficulty + Difficulty;
+    const int CodeC = rand() % Difficulty + Difficulty;
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -51,6 +52,7 @@ bool PlayGame(int Difficulty)
 
 int main() 
 {
+    srand(time(NULL)); //create new random sequence based on time of day
     int LevelDifficulty = 1;
     const int MaxDifficulty = 5;
 

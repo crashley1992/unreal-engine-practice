@@ -2,18 +2,23 @@
 #include <iostream>
 
 using namespace std;
+// using namespace rand;
 
-void PlayGame()
-{
+void PrintIntroduction(int Difficulty) {
     //greeting for user to see what the purpose of the game is
-    cout << "Welcome to Riddle Me This.\n";
+    cout << "\nWelcome to Riddle Me This.\n";
     cout << "Use the clues provided to figure out the code combinations\n";
-    cout << "To advance to the next round you will need to guy the correct numbers to the code\n";
+    cout << "Your current level is : " <<  Difficulty << endl; 
+    cout << "To advance to the next round you will need to guess the correct numbers to the code\n";
+}
 
+bool PlayGame(int Difficulty)
+{
+    PrintIntroduction(Difficulty);
     //declaration variables for code values, used CamelCase as per Unreal Documentation
-    const int CodeA = 4;
-    const int CodeB = 3;
-    const int CodeC = 2;
+    const int CodeA = rand() % 6;
+    const int CodeB = rand() % 6;
+    const int CodeC = rand() % 6;
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -35,15 +40,39 @@ void PlayGame()
 
    //Check ig play guess is correct
     if (GuessSum == CodeSum && GuessProduct == CodeProduct) {
-        cout << "You win";
+        cout << "Correct Guess!\n";
+        return true;
     } else {
-        cout << "Keep Guessing friend";
+        cout << "Keep Guessing friend\n";
+        cout << "Still on level: " << Difficulty << endl;
+        return false;
     }
 }
 
 int main() 
-
 {
-    PlayGame();
+    int LevelDifficulty = 1;
+    const int MaxDifficulty = 5;
+
+    while (LevelDifficulty <= MaxDifficulty) //loops game until all levels are completed
+    {
+        bool bLevelComplete = PlayGame(LevelDifficulty);
+        cin.clear(); //clears any errors
+        cin.ignore(); //discards the buffer
+
+        if (bLevelComplete)
+        {
+            //increase level difficulty
+            ++LevelDifficulty;
+            cout << "Your new level is: " << LevelDifficulty << endl;
+            if (LevelDifficulty == MaxDifficulty) 
+            {
+                cout << "Congrats! You Win!!!!" << endl;
+                return false;
+            }
+        }
+        
+     }
+
     return 0;
 }

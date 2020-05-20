@@ -16,9 +16,9 @@ bool PlayGame(int Difficulty)
 {
     PrintIntroduction(Difficulty);
     //declaration variables for code values, used CamelCase as per Unreal Documentation
-    const int CodeA = rand() % 6;
-    const int CodeB = rand() % 6;
-    const int CodeC = rand() % 6;
+    const int CodeA = rand() % Difficulty + 1;
+    const int CodeB = rand() % Difficulty + 1;
+    const int CodeC = rand() % Difficulty + 1;
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
